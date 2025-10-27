@@ -15,7 +15,7 @@ Clear-Host
 Write-Host @"
 
 
-  ██▀███   ▒█████  ▓█████▄     ▄▄▄▄ ▓██   ██▓ ██▓███   ▄▄▄        ██████   ██████ 
+     ██▀███   ▒█████  ▓█████▄     ▄▄▄▄ ▓██   ██▓ ██▓███   ▄▄▄        ██████   ██████ 
 ▓██ ▒ ██▒▒██▒  ██▒▒██▀ ██▌   ▓█████▄▒██  ██▒▓██░  ██▒▒████▄    ▒██    ▒ ▒██    ▒ 
 ▓██ ░▄█ ▒▒██░  ██▒░██   █▌   ▒██▒ ▄██▒██ ██░▓██░ ██▓▒▒██  ▀█▄  ░ ▓██▄   ░ ▓██▄   
 ▒██▀▀█▄  ▒██   ██░░▓█▄   ▌   ▒██░█▀  ░ ▐██▓░▒██▄█▓▒ ▒░██▄▄▄▄██   ▒   ██▒  ▒   ██▒
@@ -26,12 +26,7 @@ Write-Host @"
    ░         ░ ░     ░        ░     ░ ░                    ░  ░      ░        ░  
                    ░               ░░ ░                                          
 
-
-
-"@ -ForegroundColor DarkMagenta
-
-
-Write-Host "Rod Bypassing" -ForegroundColor DarkMagenta
+Write-Host "Kam Bypassing" -ForegroundColor DarkMagenta
 Write-Host ""
 Write-Host ""
 Write-Host "run this script before the ScreenShare" -ForegroundColor DarkMagenta
@@ -93,14 +88,14 @@ function ClearLogs {
     switch ($opcion) {
         "1" {
            
-            Write-Host "Deleting Journal..." -ForegroundColor DarkRed
+            Write-Host "Deleting Journal..." -ForegroundColor DarkMagenta
             cmd /c "fsutil usn deletejournal /d c:"
-            Write-Host "Journal deleted" -ForegroundColor DarkRed
+            Write-Host "Journal deleted" -ForegroundColor DarkMagenta
         }
 
         "2" {
           
-          Write-host "Clear Regedit Logs...." -ForegroundColor DarkRed
+          Write-host "Clear Regedit Logs...." -ForegroundColor DarkMagenta
           cmd /c "reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Compatibility Assistant\Store /f /va  & reg delete HKEY_CURRENT_USER\Software\WinRAR\ArcHistory /f /va & reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePidlMRU\dll /f /va & reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePidlMRU\exe /f /va & reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePidlMRU\exe /f /va & reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs /f /va & reg delete HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\Shell\MuiCache /f /va & reg delete HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery /f /va "
     }
 }
@@ -195,28 +190,28 @@ if (Test-Path $path) {
     (Get-Item $path).LastWriteTime = $newDate
     Write-Host "Correctly Modify new date = $newDate"
 } else {
-    Write-Host "Incorrect Path." -ForegroundColor DarkRed
+    Write-Host "Incorrect Path." -ForegroundColor DarkMagenta
 }
 
 }
 
 function StopServices {
-    Write-Host "Select Option:" -ForegroundColor DarkRed
+    Write-Host "Select Option:" -ForegroundColor DarkMagenta
     Write-Host ""
-    Write-Host "1) Bam" -ForegroundColor DarkRed
-    Write-Host "2) DPS" -ForegroundColor DarkRed
-    Write-Host "3) DiagTrack" -ForegroundColor DarkRed
-    Write-Host "4) Sysmain" -ForegroundColor DarkRed
+    Write-Host "1) Bam" -ForegroundColor DarkMagenta
+    Write-Host "2) DPS" -ForegroundColor DarkMagenta
+    Write-Host "3) DiagTrack" -ForegroundColor DarkMagenta
+    Write-Host "4) Sysmain" -ForegroundColor DarkMagenta
     Write-Host ""
    
     $opcion = Read-Host "Select"
     
     switch ($opcion) {
-        "1" { cmd /c "sc stop Bam"; Write-Host "'Bam' Stopped." -ForegroundColor DarkRed }
-        "2" { cmd /c "sc stop Dps"; Write-Host "'DPS Stopped" -ForegroundColor DarkRed }
-        "3" { cmd /c "sc stop Diagtrack"; Write-Host "DiagTrack' Stopped" -ForegroundColor DarkRed }
-        "4" { cmd /c "sc stop Sysmain"; Write-Host "'Sysmain' Stopped" -ForegroundColor DarkRed }
-        default { Write-Host "Opción no válida." -ForegroundColor DarkRed }
+        "1" { cmd /c "sc stop Bam"; Write-Host "'Bam' Stopped." -ForegroundColor DarkMagenta }
+        "2" { cmd /c "sc stop Dps"; Write-Host "'DPS Stopped" -ForegroundColor DarkMagenta }
+        "3" { cmd /c "sc stop Diagtrack"; Write-Host "DiagTrack' Stopped" -ForegroundColor DarkMagenta }
+        "4" { cmd /c "sc stop Sysmain"; Write-Host "'Sysmain' Stopped" -ForegroundColor DarkMagenta }
+        default { Write-Host "Opción no válida." -ForegroundColor DarkMagenta }
         
         
     }
@@ -260,7 +255,7 @@ Write-Host "Extension Changed !: $newPath"
 }
 
 function ExecuteCheats {
-    Write-Host "Execute Cheats:" -ForegroundColor DarkRed
+    Write-Host "Execute Cheats:" -ForegroundColor DarkMagenta
     Write-Host ""
     Write-Host "1) Start Jar"
     Write-Host "2) Start exe"
@@ -273,9 +268,9 @@ function ExecuteCheats {
 
     switch ($opcion) {
         "1" { cmd /c "java -jar $path" }
-        "2" { cmd /c "start $path /c vschost.exe"; Write-Host "Starting exe: $path" -ForegroundColor DarkRed }
-        "3" { cmd.exe /c "regsvr32 $path"  "Starting dll: $path" -ForegroundColor DarkRed }
-        default { Write-Host "Incorrect Option." -ForegroundColor DarkRed }
+        "2" { cmd /c "start $path /c vschost.exe"; Write-Host "Starting exe: $path" -ForegroundColor DarkMagenta }
+        "3" { cmd.exe /c "regsvr32 $path"  "Starting dll: $path" -ForegroundColor DarkMagenta }
+        default { Write-Host "Incorrect Option." -ForegroundColor DarkMagenta }
     }
 
 }
@@ -305,5 +300,5 @@ switch ($opcion) {
     "4" { HideRecord }
     "5" { DateModificator }
     "6" { ChangeExtension }
-    default { Write-Host "Incorrectly Option" -ForegroundColor DarkRed }
+    default { Write-Host "Incorrectly Option" -ForegroundColor DarkMagenta }
 }
