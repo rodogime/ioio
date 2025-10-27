@@ -308,3 +308,4 @@ switch ($opcion) {
     "5" { DateModificator }
     "6" { ChangeExtension }
     default { Write-Host "Incorrectly Option" -ForegroundColor DarkRed }
+}
